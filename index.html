@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+  <title>Everyone Is Here In The Future</title>
+  <script src="jquery.js"></script>
+  
+  <style type="text/css">
+    table {
+      width: 800px; margin: 0 auto;
+      margin-top: 100px;
+      border-spacing: 50px;
+    }
+    table td {
+      background-color: #222;
+      height: 325px;
+      text-align: center;
+      border-width: 10px; border-style: solid; border-color: #444;
+    }
+    table td a {
+      text-decoration: none; font-size: 200px;
+      color: #aaa; padding: 44px 87px;
+    }
+    table td.on {
+      background-color: #fff;
+      border-color: #ccc;
+    }
+    table td.on a {color: #000;}
+  </style>
+  
+  <script type="text/javascript">
+    function flash() {
+      document.currBox.toggleClass('on');
+    }
+    function rotate() {
+      document.currRotation += 5;
+      document.currBox.css('-moz-transform', 'rotate(' + document.currRotation + 'deg)');
+    }
+    $(function() {
+      $('table td').hover(function() {
+        document.currBox = $(this);
+        document.currRotation = 0;
+        document.timer1 = setInterval("flash()", 75);
+        document.timer2 = setInterval("rotate()", 20);
+      }, function() {
+        clearInterval(document.timer1);
+        clearInterval(document.timer2);
+        document.currBox.removeClass('on');
+        document.currBox.css('-moz-transform', 'rotate(0deg)');
+      });
+    });
+  </script>
+</head>
+<body>
+
+
+<table>
+  <tr>
+    <td>
+      <a href="one.html">1</a>
+    </td>
+    <td>
+      <a href="two.html">2</a>
+    </td>
+  </tr>
+</table>
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? 
+"https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + 
+"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-252618-8");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+
+</body>
+</html>
