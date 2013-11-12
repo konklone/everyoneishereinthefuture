@@ -3,7 +3,7 @@
 <head>
   <title>Everyone Is Here In The Future</title>
   <script src="jquery.js"></script>
-  
+
   <style type="text/css">
     table {
       width: 800px; margin: 0 auto;
@@ -26,14 +26,18 @@
     }
     table td.on a {color: #000;}
   </style>
-  
+
   <script type="text/javascript">
     function flash() {
       document.currBox.toggleClass('on');
     }
     function rotate() {
       document.currRotation += 5;
-      document.currBox.css('-moz-transform', 'rotate(' + document.currRotation + 'deg)');
+      document.currBox.css({
+        '-moz-transform': 'rotate(' + document.currRotation + 'deg)',
+        '-webkit-transform': 'rotate(' + document.currRotation + 'deg)',
+        'transform': 'rotate(' + document.currRotation + 'deg)'
+      });
     }
     $(function() {
       $('table td').hover(function() {
@@ -45,7 +49,11 @@
         clearInterval(document.timer1);
         clearInterval(document.timer2);
         document.currBox.removeClass('on');
-        document.currBox.css('-moz-transform', 'rotate(0deg)');
+        document.currBox.css({
+            '-moz-transform': 'rotate(0deg)',
+            '-webkit-transform': 'rotate(0deg)',
+            'transform': 'rotate(0deg)'
+        });
       });
     });
   </script>
@@ -65,17 +73,16 @@
 </table>
 
 
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? 
-"https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + 
-"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-252618-8', 'everyoneishereinthefuture.com');
+  ga('set', 'anonymizeIp', true);
+  ga('send', 'pageview');
 </script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-252618-8");
-pageTracker._trackPageview();
-} catch(err) {}</script>
 
 
 </body>
