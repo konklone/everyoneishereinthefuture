@@ -1,0 +1,4 @@
+Options +FollowSymLinks
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^www.everyoneishereinthefuture.com$ [NC]
+RewriteRule ^(.*)$ http://everyoneishereinthefuture.com/$1 [R=301,L]
